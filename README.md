@@ -1,4 +1,5 @@
-# Project Overview: End-to-End Data Engineering: Near Real-Time CDC Pipeline for AirBnB Data on Azure
+# Project Overview: 
+### End-to-End Data Engineering Pipeline: Near Real-Time CDC Pipeline for AirBnB Data on Azure
 ![airbnbpic!](AirBnBApp3.png)
 
 This project focuses on implementing a **near real-time Change Data Capture (CDC) pipeline** in Azure to process AirBnB data, ensuring seamless integration and continuous data flow. Below is an outline of the various components involved:
