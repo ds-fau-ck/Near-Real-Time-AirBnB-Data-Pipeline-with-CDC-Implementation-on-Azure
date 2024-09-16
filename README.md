@@ -5,7 +5,6 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 
 ---
 
----
 ![airbnbpic!](AirBnBApp3.png)
 
 
