@@ -56,9 +56,9 @@ The backend of the AirBnB system interacts with **Cosmos DB**, which stores book
 ### 4. **Pipeline 1: Customer Data Processing**
 
 This **Azure Data Factory (ADF)** pipeline runs every two hours to:
-- Retrieve customer files from ADLS.
-- Copy the data to a **Synapse table** for further processing.
-- Archive processed files.
+- Read customer files from ADLS.
+- Archive processed files in the archieved folder.
+- Read the data  from CosmosDB for further processing.
 - Perform **upsert** operations on customer data.
 - Transform the data into a **Booking Fact Table**.
 - Create a **Materialized View** using a stored procedure in Synapse for reporting and analysis.
