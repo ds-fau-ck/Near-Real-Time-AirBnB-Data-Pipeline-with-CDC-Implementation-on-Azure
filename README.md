@@ -20,7 +20,7 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 | Section | Description |
 |---------|-------------|
 | [1. Change Data Capture (CDC)](#1-change-data-capture-cdc) | Overview of CDC and its importance in transactional and NoSQL databases |
-| [2. ADLS (Azure Data Lake Storage)](#2-adls-azure-data-lake-storage) | Managing incoming customer delta data in ADLS |
+| [2. ADLS (Azure Data Lake Storage)](#2-adls-azure-data-lake-storage) | Managing incoming customer data in ADLS |
 | [3. AirBnB Backend](#3-airbnb-backend) | Using Cosmos DB to manage AirBnB's backend booking data |
 | [4. Pipeline 1: Customer Data Processing](#4-pipeline-1-customer-data-processing) | Description of the ADF pipeline for processing customer data |
 | [5. Pipeline 2: Booking Data Processing](#5-pipeline-2-booking-data-processing) | Processing AirBnB booking data from Cosmos DB |
@@ -30,53 +30,51 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 
 ### 1. **Change Data Capture (CDC)**
 
-When working with transactional or NoSQL databases, operations like inserting, deleting, or updating data are common. This process is known as **Change Data Capture (CDC)**, which captures changes from the source, such as reading, inserting, updating, or deleting data. 
-
-This project implements a **CDC pipeline** on Azure to ensure near real-time integration of AirBnB data.
+**Change Data Capture (CDC)** captures changes (inserts, updates, deletes) from transactional or NoSQL databases. This project implements a **CDC pipeline** on Azure to enable near real-time integration of AirBnB's customer and booking data.
 
 ---
 
 ### 2. **ADLS (Azure Data Lake Storage)**
 
-Inside **Azure Data Lake Storage (ADLS)**, there is a container (e.g., "customer data"). Every 30 minutes, delta data is received in the form of **CSV files**, containing new customers onboarded or updates to existing customers. Within two hours, up to four files are expected to be available in the system.
-
-The files are processed and archived in ADLS to ensure continuous and efficient data flow.
+**Azure Data Lake Storage (ADLS)** contains a container (e.g., "customer data") where **CSV files** with customer updates are received every 30 minutes.These files are processed, archived, and ingested into Synapse for further transformation and analysis.
 
 ---
 
-### 3. **AirBnB Backend**
+### 3. **AirBnB Backend and Booking Data**
 
-The AirBnB application interacts with **Cosmos DB**, a scalable NoSQL database. Cosmos DB contains a database named **AirBnB**, with a container named **Bookings**. 
-
-Data is continuously generated through Python scripts and written into Cosmos DB. Updates made through the AirBnB UI trigger the CDC pipeline, ensuring real-time data processing.
+The AirBnB backend interacts with **Cosmos DB**, which stores booking data in the **Bookings** container. A Python script continuously generates booking data, and CDC updates triggered by the **Cosmos DB** UI ensure near real-time data flow for processing.
 
 ---
 
 ### 4. **Pipeline 1: Customer Data Processing**
 
-This pipeline runs every two hours in **Azure Data Factory (ADF)** and performs the following steps:
-- Retrieve the list of available customer files in ADLS.
-- Copy the files to a **Synapse table** for processing.
-- Archive the processed files.
-- Perform **upsert** operations and transformation of booking data, creating a **booking fact table**.
-- Generate a **materialized view** using a **Stored Procedure** in Synapse.
+This pipeline runs every two hours in **Azure Data Factory (ADF)** to:
+- Retrieve customer files from ADLS.
+- Copy data to a **Synapse table** for processing.
+- Archive processed files.
+- Perform **upsert** operations on customer data, transforming it into a **booking fact table**.
+- Create a **materialized view** using a **Stored Procedure** in Synapse for reporting and analysis.
 
 ---
 
 ### 5. **Pipeline 2: Booking Data Processing**
 
-This pipeline reads booking data directly from **Cosmos DB** and processes it for further analysis. It captures any CDC updates and ensures data is consistently up to date.
-
+This pipeline reads booking data from **Cosmos DB**, capturing CDC updates and ensuring that all booking-related changes are processed in real-time. It integrates the data for further analysis in downstream systems.
 ---
+### 6. **Pipeline 3: Execute Pipelines**
 
-### 6. **Pipeline 3: Execute Pipeline 1 and Pipeline 2**
-
-This pipeline coordinates the execution of both **Pipeline 1** and **Pipeline 2**, ensuring customer and booking data are processed in a synchronized manner.
-
+This pipeline first triggers the execution of **Pipeline 1** (Customer Data Processing). Once **Pipeline 1** completes successfully, it proceeds to execute **Pipeline 2** (Booking Data Processing). 
 ---
-
 ### Summary
 
-This project demonstrates a complete **end-to-end data engineering pipeline** for near real-time processing of AirBnB data using Azure. The architecture captures, processes, and transforms both customer and booking data in real-time, leveraging services like ADLS, ADF, Synapse, and Cosmos DB.
+This project demonstrates an **end-to-end data engineering pipeline** for processing AirBnB data in near real-time. By leveraging Azure services such as ADLS, ADF, Synapse, and Cosmos DB, the system captures, processes, and transforms customer and booking data seamlessly.
 
 ---
+### **Scripts and dataset for this Project**
+1. [CosmosDB](CosmosDB/cosmosdb.py)
+2. [Datasets](DataSets/customer_data_2024_08_29_06_58.csv)
+3. [Datasets](DataSets/customer_data_2024_08_29_07_20.csv)
+4. [Datasets](Datasets/customer_data_2024_08_29_08_13.csv)
+5. [Synapse](Synapse/create_table_synapse.sql/Loans.sql)
+
+
