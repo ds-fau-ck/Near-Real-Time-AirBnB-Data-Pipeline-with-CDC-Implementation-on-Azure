@@ -1,13 +1,11 @@
 
 # **End-to-End Data Engineering: Near Real-Time CDC Pipeline for AirBnB Data on Azure**
-
+### **Introduction**
 This project implements a **near real-time Change Data Capture (CDC) pipeline** for processing AirBnB data using Azure services, ensuring seamless integration and continuous data flow.
 
 ---
-
-![airbnbpic!](AirBnBApp3.png)
-
-
+### **Architecture**
+![Architecture](AirBnBApp3.png)
 
 
 ## **Table of Contents**
@@ -26,7 +24,7 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 
 When working with transactional or NoSQL databases, operations like inserting, deleting, or updating data are common. This process is known as **Change Data Capture (CDC)**, which captures changes from the source, such as reading, inserting, updating, or deleting data. 
 
-This project implements a **CDC pipeline** on Azure to ensure real-time integration of AirBnB data.
+This project implements a **CDC pipeline** on Azure to ensure near real-time integration of AirBnB data.
 
 ---
 
