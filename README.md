@@ -24,7 +24,7 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 | [3. AirBnB Backend](#3-airbnb-backend) | Using Cosmos DB to manage AirBnB's backend booking data |
 | [4. Pipeline 1: Customer Data Processing](#4-pipeline-1-customer-data-processing) | Description of the ADF pipeline for processing customer data |
 | [5. Pipeline 2: Booking Data Processing](#5-pipeline-2-booking-data-processing) | Processing AirBnB booking data from Cosmos DB |
-| [6. Pipeline 3: Execute Pipelines](#6-pipeline-3-execute-pipeline-1-and-pipeline-2) | Coordinating the execution of both pipelines |
+| [6. Pipeline 3: Execute Pipelines](#6-pipeline-3-execute-pipeline-1-and-pipeline-2) | Execution of the pipelines one and pipeline two |
 
 ---
 
