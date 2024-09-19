@@ -7,7 +7,15 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
 ### **Architecture**
 ![Architecture](AirBnBApp3.png)
 
-
+### **Technology Used**
+1. **Programming Language**: Python  
+2. **Scripting Language**: SQL  
+3. **NoSQL**: CosmosDB  
+4. **Azure Cloud Platform**:
+   - Azure Data Lake Storage (ADLS)
+   - Azure Data Factory
+   - Azure Synapse Analytics
+### **Steps Involved in the Project**
 ## **Table of Contents**
 | Section | Description |
 |---------|-------------|
