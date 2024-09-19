@@ -60,11 +60,15 @@ This pipeline runs every two hours in **Azure Data Factory (ADF)** to:
 ### 5. **Pipeline 2: Booking Data Processing**
 
 This pipeline reads booking data from **Cosmos DB**, capturing CDC updates and ensuring that all booking-related changes are processed in real-time. It integrates the data for further analysis in downstream systems.
+
 ---
+
 ### 6. **Pipeline 3: Execute Pipelines**
 
 This pipeline first triggers the execution of **Pipeline 1** (Customer Data Processing). Once **Pipeline 1** completes successfully, it proceeds to execute **Pipeline 2** (Booking Data Processing). 
+
 ---
+
 ### Summary
 
 This project demonstrates an **end-to-end data engineering pipeline** for processing AirBnB data in near real-time. By leveraging Azure services such as ADLS, ADF, Synapse, and Cosmos DB, the system captures, processes, and transforms customer and booking data seamlessly.
@@ -75,6 +79,6 @@ This project demonstrates an **end-to-end data engineering pipeline** for proces
 2. [Datasets](DataSets/customer_data_2024_08_29_06_58.csv)
 3. [Datasets](DataSets/customer_data_2024_08_29_07_20.csv)
 4. [Datasets](Datasets/customer_data_2024_08_29_08_13.csv)
-5. [Synapse](Synapse/create_table_synapse.sql/Loans.sql)
+5. [Synapse](Synapse/create_table_synapse.sql)
 
 
