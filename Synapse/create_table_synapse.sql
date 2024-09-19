@@ -45,9 +45,6 @@ CREATE TABLE airbnb.bookings_fact (
 
 select * from airbnb.bookings_fact;
 
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'GrowDataSkills@123';
-OPEN MASTER KEY DECRYPTION BY PASSWORD = 'GrowDataSkills@123';
-
 ------------------------------------
 
 CREATE TABLE airbnb.BookingCustomerAggregation
