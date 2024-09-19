@@ -15,7 +15,7 @@ This project implements a **near real-time Change Data Capture (CDC) pipeline** 
    - Azure Data Lake Storage (ADLS)
    - Azure Data Factory
    - Azure Synapse Analytics
-### **Steps Involved in the Project**
+
 ## **Table of Contents**
 | Section | Description |
 |---------|-------------|
@@ -69,16 +69,20 @@ This pipeline first triggers the execution of **Pipeline 1** (Customer Data Proc
 
 ---
 
-### Summary
-
-This project demonstrates an **end-to-end data engineering pipeline** for processing AirBnB data in near real-time. By leveraging Azure services such as ADLS, ADF, Synapse, and Cosmos DB, the system captures, processes, and transforms customer and booking data seamlessly.
-
----
 ### **Scripts and dataset for this Project**
 1. [CosmosDB](CosmosDB/cosmosdb.py)
 2. [Datasets](DataSets/customer_data_2024_08_29_06_58.csv)
 3. [Datasets](DataSets/customer_data_2024_08_29_07_20.csv)
 4. [Datasets](Datasets/customer_data_2024_08_29_08_13.csv)
 5. [Synapse](Synapse/create_table_synapse.sql)
+
+---
+
+### Summary
+
+This project demonstrates an **end-to-end data engineering pipeline** for processing AirBnB data in near real-time. By leveraging Azure services such as ADLS, ADF, Synapse, and Cosmos DB, the system captures, processes, and transforms customer and booking data seamlessly.
+
+---
+
 
 
