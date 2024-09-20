@@ -62,18 +62,21 @@ This **Azure Data Factory (ADF)** pipeline runs every two hours to:
 - Perform **upsert** operations on customer data.
 - Transform the data into a **Booking Fact Table**.
 - Create a **Materialized View** using a stored procedure in Synapse for reporting and analysis.
+
 ![customer-data-processing](customer-data-processing-pipeline1.jpg)
 ---
 
 ### 5. **Pipeline 2: Booking Data Processing**
 
 This pipeline captures **CDC updates** from **Cosmos DB** in near real-time. It processes booking-related data changes and integrates the data for downstream systems like Azure Synapse for further analysis.
+
 ![Booking-data-processing](BookingDataProcessingPipeline2.jpg)
 ---
 
 ### 6. **Pipeline 3: Orchestration of Pipelines**
 
 This pipeline orchestrates the execution of **Pipeline 1** (Customer Data Processing) and **Pipeline 2** (Booking Data Processing). It triggers **Pipeline 1** first, and once it completes successfully, **Pipeline 2** is executed.
+
 ![Orchestration of Pipelines](pipeline3.jpg)
 ---
 
