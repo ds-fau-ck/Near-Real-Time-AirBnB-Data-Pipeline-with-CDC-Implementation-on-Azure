@@ -37,19 +37,19 @@ This project demonstrates the implementation of a **near real-time Change Data C
 
 ### 1. **Change Data Capture (CDC)**
 
-**Change Data Capture (CDC)** captures changes (inserts, updates, deletes) from transactional or NoSQL databases. This project implements a **CDC pipeline** on Azure to enable near real-time integration of AirBnB's customer and booking data.
+**Change Data Capture (CDC)** captures changes (inserts, updates, deletes) from transactional or NoSQL databases. This project implements a **CDC pipeline** on Azure to enable near real-time data integration of AirBnB's customer and booking data.
 
 ---
 
 ### 2. **Azure Data Lake Storage (ADLS)**
 
-**Azure Data Lake Storage (ADLS)** is used to store incoming **CSV files** that contain customer updates every 30 minutes. The files are processed, archived, and then ingested into Synapse for further transformation and analysis.
+**In the Azure Data Lake Storage (ADLS)**, incoming **CSV files** that contain customer updates are stored every 30 minutes. The files are processed, ingested into Synapse DWH for further transformation and analysis and then moved to the archived folder.
 
 ---
 
 ### 3. **Cosmos DB: AirBnB Booking Data**
 
-The backend of the AirBnB system interacts with **Cosmos DB**, which stores booking data in the **Bookings** container. A Python script simulates continuous booking data generation. **CDC updates** triggered by Cosmos DB ensure near real-time data flow for processing.
+The backend of the Python scripts interacts with **Cosmos DB**, which stores booking data in the **Bookings** container. A Python script simulates booking data generation. **CDC updates** triggered by Cosmos DB ensure near-real-time data flow for processing.
 
 ---
 
