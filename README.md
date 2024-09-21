@@ -92,9 +92,7 @@ This pipeline orchestrates the execution of **Pipeline 1** (Customer Data Proces
 3. **Synapse Table Creation Script**: [create_table_synapse.sql](Synapse/create_table_synapse.sql)
 
 ---
-
 ### **Summary**
-
 This project demonstrates an **end-to-end data engineering pipeline** for processing AirBnB data in near real-time. By leveraging Azure services such as ADLS, ADF, Synapse, and Cosmos DB, the system captures, processes, and transforms customer and booking data seamlessly.
 
 ---
